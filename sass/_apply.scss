@@ -1,0 +1,57 @@
+// #apply {
+// 	font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+// 	margin-bottom: 5em;
+// 	h2 {
+// 		font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+// 		font-weight: 800;
+// 		text-align: left;
+// 		margin-top: 1em;
+// 		i {
+// 			color: #aaa;
+// 			margin-right: 10px;
+
+// 		}
+// 	}
+// }
+
+#apply {
+	.page-text {
+			font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 1.25em;
+	line-height: 1.125em;
+	word-spacing: 1px;
+	}
+	#send-email {
+		margin: 2em 0em;
+	}
+}
+
+.apply-container {
+	width: 80% !important;
+	margin: auto !important;
+}
+
+#apply {
+	background-color: #fff;
+}
+
+
+.main-text {
+	font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 1.25em;
+	line-height: 1.125em;
+	word-spacing: 1px;
+}
+
+input [type="file"] {
+	background-color: red !important;
+}
+
+.apply-container {
+	.more-info {
+	color: #222;
+	text-transform: underline !important;
+	&:hover {
+		cursor: pointer;
+	}
+}}

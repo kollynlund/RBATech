@@ -1,0 +1,66 @@
+<div class="section page">
+    <div class="wrapper">
+      <!--   <div class="breadcrumb"><a href="" ng-click="cc.goTo('home')">Home</a> &gt; <a href="" ng-click="cc.goTo('contact')">Contact</a></div> -->
+        <h1 style="margin-bottom: 0em;">Contact Us</h1>
+        
+        <div id="emailHasBeenSent" ng-if="cc.emailSent">
+            <p class="thank-you-text" ng-if="cc.emailSent">Thanks for the email! We&rsquo;ll be in touch shortly!</p>
+            <a href="technologies.php"><button class="contact-thanks">Find more technologies</button></a>
+        </div>
+
+        <div id="emailNotYetSent" ng-if="!cc.emailSent">
+            <p class="contact-text">We&rsquo;d love to hear from you! Complete the form to send us an email.</p>
+            <div class="error"></div>
+            <form class="contact-form">
+                <table>
+                    <tr>
+                        <th>
+                            <label for="name">Name</label>
+                        </th>
+                        <td>
+                            <input type="text" name="name" id="name" ng-model="cc.formData.name">
+                        </td>
+                    </tr>
+                    <tr ng-if="cc.formData.patent_id">
+                        <th>
+                            <label for="patent_id">Patent ID</label>
+                        </th>
+                        <td>
+                            <input type="text" name="patent_id" id="patent_id" ng-model="cc.formData.patent_id" ng-disabled="true">
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <th>
+                            <label for="email">Email</label>
+                        </th>
+                        <td>
+                            <input type="text" name="email" id="email" ng-model="cc.formData.email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <label for="message">Message</label>
+                        </th>
+                        <td>
+                            <textarea name="message" id="message" ng-model="cc.formData.message"></textarea>
+                        </td>
+                    </tr>
+                    <tr style="display: none;">
+                        <th>
+                            <label for="address">Address</label>
+                        </th>
+                        <td>
+                            <input type="text" name="address" id="address">
+                            <p>please leave this field blank.</p>
+                        </td>
+                    </tr>
+                </table>
+                <p class="contact-text-sm">* Please enter the ID # of the technologies you are interested in.</p>
+                <input type="submit" value="{{cc.formValid ? 'Send' : 'Fill out the form'}}" ng-click="cc.submitForm()" ng-disabled="!cc.formValid">
+            </form>
+        </div>
+    </div>
+    <center><small><strong>Brigham Young University Technology Transfer Office</strong><br />
+    3760 Harold B. Lee Library | Provo, UT 84602<br />
+    Phone: (801) 422-6266 | Fax: (801) 422-0463 | Email: byutto@byu.edu</small></center>
+</div>

@@ -1,0 +1,43 @@
+.mission-statement {
+  background-color: #fff;
+  width: 85%;
+  max-width: 1000px;
+  margin: auto;
+  box-sizing: border-box;
+  min-height: 267px;
+  margin-bottom: 8em; }
+  .mission-statement .left {
+    width: 60%;
+    display: inline-block; }
+  .mission-statement .right {
+    width: 39%;
+    display: inline-block;
+    float: right; }
+  .mission-statement h2 {
+    font-weight: bold;
+    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #333;
+    padding: .5em; }
+  .mission-statement p {
+    padding-left: 1em;
+    padding-bottom: 1em;
+    line-height: 1.5em;
+    padding-right: 1em; }
+  .mission-statement img {
+    background-color: red;
+    width: auto;
+    display: inline-block;
+    height: 267px; }
+
+.icons {
+  margin: auto;
+  text-align: center;
+  margin-bottom: 4em; }
+  .icons img {
+    width: 5em;
+    text-align: center;
+    margin: auto;
+    background-color: tomato;
+    padding: 1em; }
+
+/*# sourceMappingURL=_philosophy.css.map */

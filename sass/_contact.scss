@@ -1,0 +1,83 @@
+#contact {
+	background-color: #fff;
+}
+
+#success_message {
+  display: none;
+}
+
+.btn-send-message {
+	background-color: #f14c2e;
+}
+
+
+.input-group {
+	width: 100%;
+
+}
+
+
+#send-email {
+	width: 100%;
+	
+}
+
+
+
+.form {
+	margin: 0em auto;
+	width: 40%;
+	@media (max-width: 900px) {
+		width: 60%;
+	}
+	@media (max-width: 500px) {
+		width: 70%;
+	}	
+	@media (max-width: 400px) {
+		width: 90%;
+	}	
+}
+
+.form-horizontal .control-label {
+    padding-top: .7em !important;
+    font-size: 1.2em !important;
+    font-weight: 200 !important;
+ 
+}
+
+
+
+.form-control {
+    padding: 1em .9em;
+}
+
+.form-group .form-textbox {
+	padding-bottom: 4em;
+	padding-top: 1.5em;
+}
+
+textarea.form-control {
+    height: 8em !important;
+}
+
+#btn-positive-submit {
+	display: inline-block !important;
+	background: #f14c2e;
+    background: -moz-linear-gradient(top,#f14c2e 0%,#d8452e 100%);
+    background: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#f14c2e),color-stop(100%,#d8452e));
+    background: -webkit-linear-gradient(top,#f14c2e 0%,#d8452e 100%);
+    background: -o-linear-gradient(top,#f14c2e 0%,#d8452e 100%);
+    background: -ms-linear-gradient(top,#f14c2e 0%,#d8452e 100%);
+    background: linear-gradient(to bottom,#f14c2e 0%,#d8452e 100%);
+	color: white;
+	width: 100%;
+	text-align: center;
+	padding: .5em;
+	font-size: 1.5em;
+	margin: 0 auto;
+	&:hover {
+		color: white !important; 
+		background: darken(#f14c2e, 11.5%)
+	}
+}
+
