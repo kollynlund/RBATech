@@ -600,7 +600,8 @@ input [type="file"] {
     width: 100%;
     overflow: hidden;
     /* "overflow" value must be different from "visible" */
-    text-overflow: ellipsis; }
+    text-overflow: ellipsis;
+    margin-bottom: 0px !important; }
   .cards .details p:first-child:before {
     content: " - "; }
   .cards .details p:first-child:after {
