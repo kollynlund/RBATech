@@ -3,33 +3,33 @@
       <a ng-click="hc.goTo('home')" href="index.html"><img src="assets/profile.png"/></a>
     </div>
 
-    <span ng-animate="'animated'" ng-click="showMenu = !showMenu; console.log('fdsf')">
+    <span ng-animate="'animated'" ng-click="showMenu = !showMenu">
       <i ng-if="windowWidth < 935" class="fa fa-bars menu"></i>
     </span>
 
     <span ng-if="windowWidth >= 935 || showMenu" class="main-header">
       <ul class="primary-menu">
         <li class="primary-menu-link" ng-click="hc.goTo('about')">
-          <a>About RBA</a>
-        </li>
-        <li class="primary-menu-link" ng-click="hc.goTo('philosophy')">
-          <a>Philosophy</a>
-        </li>
-        <li class="primary-menu-link" ng-click="hc.goTo('courses')">
-          <a>Courses</a>
+          <a>About RBA Tech</a>
         </li>
         <li class="primary-menu-link" ng-click="hc.goTo('faculty')">
-          <a>Faculty</a>
+          <a>Team</a>
         </li>
-        <li class="primary-menu-link" ng-click="hc.goTo('faq')">
-          <a>FAQ</a>
+        <li class="primary-menu-link" ng-click="hc.goTo('technologies')">
+          <a>Team</a>
+        </li>
+        <!-- <li class="primary-menu-link" ng-click="hc.goTo('contact')">
+          <a>Technologies</a>
+        </li> -->
+        <li class="primary-menu-link" ng-click="hc.goTo('resources')">
+          <a>Resources</a>
         </li>
         <li class="primary-menu-link" ng-click="hc.goTo('contact')">
           <a>Contact</a>
         </li>
       </ul>
-      <li class="primary-menu-link nav-apply" ng-click="hc.goTo('apply')">
+<!--       <li class="primary-menu-link nav-apply" ng-click="hc.goTo('apply')">
         <a>Apply</a>
-      </li>
+      </li> -->
     </span>
 </header>
