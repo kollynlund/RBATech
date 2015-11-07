@@ -35,7 +35,6 @@ String.prototype.toProperCase = function () {
           technologies: function(TechnologyDetails) {
             return TechnologyDetails.checkForTechnologyLoaded();
           }
-
         }
       })
         .state('technology', {
@@ -278,6 +277,7 @@ String.prototype.toProperCase = function () {
       return (techData.technologies ? techData : getAllTechnologyData() );
     };
 
+    checkForTechnologyLoaded();
     return {
       'techData': techData,
       'getSingleTechnology': getSingleTechnology,
