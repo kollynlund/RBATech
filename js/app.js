@@ -21,6 +21,12 @@ String.prototype.toProperCase = function () {
         templateUrl: 'templates/about.html'
       })
 
+      .state('faculty', {
+        url: '/faculty',
+        templateUrl: 'templates/faculty.html',
+        controller: 'FacultyController as fc'
+      })
+
       .state('technologies', {
         url: '/technologies',
         templateUrl: 'templates/technologies.html',
@@ -47,6 +53,12 @@ String.prototype.toProperCase = function () {
         url: '/resources',
         templateUrl: 'templates/resources.html',
         controller: 'GenericController as rc'
+      })
+
+      .state('contact', {
+        url: '/contact',
+        templateUrl: 'templates/contact.html',
+        controller: 'ContactController as rc'
       });
   };
 
@@ -90,6 +102,17 @@ String.prototype.toProperCase = function () {
       $state.go('about');
     }
   };
+  function FacultyController($modal) {
+    var fmc = this;
+    fmc.open = function (facultyMemberName) {
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: 'Faculty Member Profiles/'+facultyMemberName+'.html',
+        controller: 'GenericModalController as gmc',
+        size: 'lg'
+      });
+    };
+  };
   function TechnologiesController($scope, $state, $filter, technologies) {
     var tc = this;
     tc.techData = technologies;
@@ -122,7 +145,6 @@ String.prototype.toProperCase = function () {
           template: media.type === 'video' ? 
                 '<div fit-vids><iframe class="vid" src="'+media.link+'" frameborder="0" allowfullscreen></iframe></div>'
                 : '<div><img class="img" src="'+media.link+'"></div>',
-          controller: 'TechnologyPictureModalController as tpmc',
           size: 'lg'
       });
     };
@@ -133,12 +155,12 @@ String.prototype.toProperCase = function () {
       $state.go(pagename);
     };
   };
-  function TechnologyPictureModalController($modalInstance) {
+  function GenericModalController($modalInstance) {
     this.close = function () {
       $modalInstance.close();
     };
   };
-  function ContactController($scope, $state, $stateParams, Emailer) {
+  function ContactController($scope, $state, $stateParams) {
     var cc = this;
     cc.formValid = false;
     cc.emailSent = false;
@@ -164,7 +186,7 @@ String.prototype.toProperCase = function () {
 
     cc.submitForm = function() {
       if (cc.formValid) {
-        Emailer.SendContactEmail(cc.formData);
+        // Emailer.SendContactEmail(cc.formData);
         cc.emailSent = true;
       }
     };
@@ -376,9 +398,10 @@ String.prototype.toProperCase = function () {
   .filter('offset', offset)
   .controller('GenericController', GenericController)
   .controller('HomeController', HomeController)
+  .controller('FacultyController', FacultyController)
   .controller('TechnologiesController', TechnologiesController)
   .controller('TechnologyController', TechnologyController)
-  .controller('TechnologyPictureModalController', TechnologyPictureModalController)
+  .controller('GenericModalController', GenericModalController)
   .controller('ContactController', ContactController)
   .controller('HeaderController', HeaderController)
   .factory('TechnologyDetails', TechnologyDetails)
