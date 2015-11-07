@@ -96,7 +96,7 @@ video {
 }
 
 .jumbotron-sm {
-	background-image: url(../assets/nyc.jpg);
+	background-image: url(../assets/flags-1.jpg);
 	background-size: cover;
 	padding: 1em 0px;
 	min-height: 300px;
@@ -131,15 +131,12 @@ video {
 }
 
 .jumbotron {
-	background-size: 100%;
-	background-color: transparent !important;
-	padding-top: 0px !important;
-	padding-bottom: 0px !important;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-image: url(../assets/flags-1.jpg);
 	text-align: center;
-	position: relative;
-	width: 100vw;
-	margin-top: -40%;
-	margin-bottom: -20% !important;
+	margin-bottom: 0px !important;
+
 	@media (max-width: 1000px) {
 		font-size: 1.125em;
 	}
