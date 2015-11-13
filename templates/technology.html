@@ -6,8 +6,8 @@
 				<h1 class="ip-title">{{::stc.selectedTech.Name}}</h1>
 			</div>
 			<div class="col-sm-8">
-				<span class="ip-id"><b>ID:</b> {{::stc.selectedTech.ID}}</span>
-				<p class="ip-description"><b>Principal Investigator:</b> {{::stc.selectedTech["PI"]}}</p>
+				<p class="ip-id"><b>ID:</b> {{::stc.selectedTech.ID}}</p>
+<!-- 				<p class="ip-description"><b>Principal Investigator:</b> {{::stc.selectedTech["PI"]}}</p> -->
 				<p class="ip-description">{{::stc.selectedTech["Short Description"]}}</p>
 				<p class="ip-description" ng-repeat="paragraph in ::stc.selectedTech['Long Description']">{{paragraph}}</p>
 				<p><b>About the Market:</b></p>

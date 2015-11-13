@@ -9,7 +9,6 @@
 .cards {
 	&:hover {
 		opacity: .8;
-		cursor: pointer;
 	}
 	@media (max-width: 767px) {
 		width: 60%;
@@ -30,8 +29,9 @@
 		background-color: #fff;
 		color: #000;
 		text-transform: uppercase;
-	  padding-bottom: 0px;
 	  margin-bottom: 30px;
+	  height: 190px;
+	  width: 100%;
 	  .name {
 	  	font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	  	font-size: 1.5em;
@@ -45,12 +45,19 @@
 	  	font-weight: 400;
 	  	letter-spacing: 1px;
 	  	padding: 0em 1.125em;
-	  	height: 3.5em;
 			width: 100%;                   
 		  overflow: hidden;              /* "overflow" value must be different from "visible" */ 
 		  text-overflow: ellipsis;
-		  margin-bottom: 0px !important;
-	
+		  margin-bottom: 8px !important;
+	  }
+	  .email {
+	    white-space: nowrap; 
+	    width: 100%;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	  }
+	  .phone {
+	  	margin-bottom: 8px;
 	  }
 	  p:first-child {
 	  	&:before {
