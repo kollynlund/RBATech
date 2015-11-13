@@ -710,6 +710,9 @@ input [type="file"] {
 .cards img {
   text-align: center;
   width: 100%; }
+.cards .no-padding {
+  padding-left: 0px !important;
+  padding-right: 0px !important; }
 .cards .details {
   text-align: center;
   padding: 1em .5em;
@@ -717,7 +720,7 @@ input [type="file"] {
   color: #000;
   text-transform: uppercase;
   margin-bottom: 30px;
-  height: 190px;
+  height: 180px;
   width: 100%; }
   .cards .details .name {
     font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
