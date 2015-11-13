@@ -1,6 +1,5 @@
-<div class="section page">
+<!-- <div class="section page">
     <div class="wrapper">
-      <!--   <div class="breadcrumb"><a href="" ng-click="cc.goTo('home')">Home</a> &gt; <a href="" ng-click="cc.goTo('contact')">Contact</a></div> -->
         <h1 style="margin-bottom: 0em;">Contact Us</h1>
         
         <div id="emailHasBeenSent" ng-if="cc.emailSent">
@@ -63,4 +62,70 @@
     <center><small><strong>Brigham Young University Technology Transfer Office</strong><br />
     3760 Harold B. Lee Library | Provo, UT 84602<br />
     Phone: (801) 422-6266 | Fax: (801) 422-0463 | Email: byutto@byu.edu</small></center>
+</div>
+
+
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+<div id="contact" class="page-title">
+    <h1>Contact</h1>
+    <p class="page-text">Let us know if you have any questions. We will reply to your message within 24 business hours.</p>
+
+
+<div class="wrapper">
+    <div class="form" id="contact_form">
+        <div class="form-group">
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input name="first_name" placeholder="First Name" class="form-control" type="text" ng-model="cc.formData.name">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                    <input name="email" placeholder="E-Mail Address" class="form-control" type="text" ng-model="cc.formData.email">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                    <input name="phone" placeholder="(845) 555-1212" class="form-control" type="text" ng-model="cc.formData.phone">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="inputGroupContainer">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                    <textarea class="form-control" name="comment" placeholder="Enter message here" ng-model="cc.formData.message"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>
+
+        <div id="send-email" class="form-group">
+            <button class="btn" id="btn-positive-submit" ng-click="cc.submitForm()" ng-disabled="!cc.formValid || cc.emailSent">{{cc.formValid ? (cc.emailSent ? 'Thanks!' : 'Send') : 'Enter name/email before submitting'}}</button>
+        </div>
+    </div>
+</div>
 </div>

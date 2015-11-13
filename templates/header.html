@@ -4,10 +4,10 @@
     </div>
 
     <span ng-animate="'animated'" ng-click="showMenu = !showMenu">
-      <i ng-if="windowWidth < 935" class="fa fa-bars menu"></i>
+      <i ng-if="windowWidth < 750" class="fa fa-bars menu"></i>
     </span>
 
-    <span ng-if="windowWidth >= 935 || showMenu" class="main-header">
+    <span ng-if="windowWidth >= 750 || showMenu" class="main-header">
       <ul class="primary-menu">
         <li class="primary-menu-link" ng-click="hc.goTo('about')">
           <a>About RBA Tech</a>
@@ -21,9 +21,9 @@
         <!-- <li class="primary-menu-link" ng-click="hc.goTo('contact')">
           <a>Technologies</a>
         </li> -->
-        <li class="primary-menu-link" ng-click="hc.goTo('resources')">
+<!--         <li class="primary-menu-link" ng-click="hc.goTo('resources')">
           <a>Resources</a>
-        </li>
+        </li> -->
         <li class="primary-menu-link" ng-click="hc.goTo('contact')">
           <a>Contact</a>
         </li>

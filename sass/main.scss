@@ -9,6 +9,10 @@
 @import "faculty";
 @import "about";
 @import "modal";
+@import "technologies";
+@import "technology";
+
+
 
 .clearfix:after { 
    content: "."; 
@@ -320,4 +324,221 @@ width: 45%;
 #overlay p {
 color: white;
 margin-top: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.note-designer {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+
+
+.bounding-box {
+  background-image: url(...);
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline;
+}
+
+
+
+.patent-filter {
+    background-color: #ddd;
+    position: relative;
+    left: -90px;
+    width: 20%;
+}
+
+.patent-list {
+    background-color: #f0eeed !important;
+    border: 1px solid #e3e1e0;
+    padding: .6em;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.patent-list-details {
+    width: 88% !important;
+    display: block !important;
+}
+
+
+
+
+
+
+.search-patents-icon {
+    background-color: #ddd;
+    padding: 9px 10px 11px 10px; 
+    border-top-right-radius: 3px; 
+    border-bottom-right-radius: 3px; 
+    color: #333;
+    margin-left: -4px;
+}
+
+.search-patents-input {
+    height: 30px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border: 2px solid #ddd;
+    display: inline-block;
+}
+
+
+#clear-search {
+    float: right;
+    font-size: .9em;
+    color: #333;
+    margin-bottom: .05em;
+    @media (max-width: 760px) {
+        display: block;
+        margin-bottom: .6em;
+        text-align: center;
+        border-radius: 2px;
+        text-decoration: none;
+        background-color: #ccc;
+        padding: .8em;
+        float: none;
+        color: #444;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+}
+
+#search-go {
+    width: 33%;
+    text-align: center;
+    border: 1px solid #eee;
+    background: #666;
+    color: #FFF;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;    
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px;
+    @media (max-width: 760px) {
+        width: 100%;
+        float: none;
+        margin: .5em 0 .5em 0;
+    }
+}
+
+.warning {
+    text-align: center;
+
+}
+
+
+.select-style select {
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.select-style select:focus {
+  outline: none;
+}
+
+
+.links-container {
+    width: 49%;
+    display: inline-block;
+    width: 100%;
+    display: block;    
+
+    @media (max-width: 760px) {
+        width: 100%;
+        font-size: .95em;
+        display: block;
+    }
+}
+
+.media-container {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    @media (max-width: 760px) {
+        width: 100%;
+        display: block;
+    }
+}
+
+.links-txt {
+    color: #555;
+    font-size: 1.45em;
+    margin-bottom: .1em;
+    vertical-align: top;
+    margin-top: 0em;
+}
+
+
+.img {   
+width: 100%;
+vertical-align: top;
+display: block;
+margin: auto;
+list-style: none;
+border: 1px solid #e3e1e0;
+-webkit-border-radius: 2px;
+border-radius: 2px;
+text-align: center;
+padding: 14px;
+background: #f0eeed;
+@media (max-width: 991px) {
+    margin-top: 2em;
+}
+}
+
+.vid {   
+width: 100%;
+vertical-align: top;
+display: block;
+margin: auto;
+list-style: none;
+border: 1px solid #e3e1e0;
+-webkit-border-radius: 2px;
+border-radius: 2px;
+text-align: center;
+padding: 14px;
+background: #f0eeed; 
 }

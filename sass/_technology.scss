@@ -1,0 +1,118 @@
+#technology {
+	.ip-title {
+    display: block;
+    line-height: 1.2em;
+    margin-bottom: 1.25em;
+    margin-top: 10px;
+	}
+	.ip-title ~ span {
+	    word-break: keep-all; 
+	    wrap: nowrap; 
+	   
+	}
+
+	.ip-description {
+	    line-height: 1.2em;
+	}
+
+	.ip-id {
+	    wrap: nowrap; 
+	}
+	.media {
+		margin: 1em 0;
+		img {
+			height: auto;
+	    display: block;
+	    width: 100%;
+	    margin: auto;
+	    margin-bottom: 1em;
+	    &:hover {
+	    	cursor: pointer;
+	    }
+		}
+		iframe {
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	.ip-link {
+	    display: block;
+	}
+
+
+	.ip-contact {
+	    width: 100% !important;
+	    margin-top: 2em;
+	    text-align: center;
+	    border: 1px solid #eee;
+	    background: #555;
+	    color: #FFF;
+	    -webkit-border-radius: 2px;
+	    border-radius: 2px;    
+	    text-transform: uppercase;
+	    -webkit-border-radius: 2px;
+	    border-radius: 2px;    
+	    font-size: 14px;
+	    padding: 14px;
+	    a {
+	        text-decoration: none;
+	    }
+	}
+	.pagination {
+		display: block;
+		margin-top: 0px;
+		padding-left: 15px;
+		padding-right: 15px;
+		p {
+			text-align: center;
+			padding-top: 2em;
+		}
+		.fa {
+			font-size: 2em;
+			color: #222;
+			background-color: #f0eeed;
+			padding: .5em .75em;
+			border-radius: 3px;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}	
+}
+
+
+.modal-dialog {
+		width: 80% !important;
+	margin: 3em auto !important;
+.modal-content {
+	border: 30px solid #444;
+	img {
+		margin-top: 0em;
+
+	}
+
+}
+}
+
+
+.modal-lg {
+	@media (min-width: 992px) {
+    width: 800px !important;
+}
+}
+
+
+.fluid-width-video-wrapper {
+	padding-top: 58.4615% !important;
+	margin-bottom: 1em;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.cover {
+	padding: 100% !important;
+
+}
