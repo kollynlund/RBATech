@@ -1,28 +1,27 @@
-<div id="technologies">
+<div id="technologies" class="section shirts page">
 	<div class="wrapper">
-		<div class="page-title">
-			<h1 style="margin-bottom: 0em; margin-top: 0px;">Technologies Available for License</h1>
-		</div>
-<!-- 		<p class="featured-tech-pdf"><a href="http://techtransfer.byu.edu/Promising-Technologies.pdf" target="_blank">Download the List of Promising Technologies (pdf)</a></p> -->
-		<p style="text-align: center;" ng-if="tc.pages > 0"><i>Page: {{tc.currentPage+1}} of {{tc.pages}}</i></p>
+<!-- 		<div class="breadcrumb"><a href="" ng-click="tc.goTo('home')">Home</a> &gt; <a href="" ng-click="tc.goTo('technologies')">Technologies</a> </div> -->
+		<h1 style="margin-bottom: 0em;">BYU Technologies Available for License</h1>
+		<p class="featured-tech-pdf"><a href="http://techtransfer.byu.edu/Promising-Technologies.pdf" target="_blank">Download the List of Promising Technologies (pdf)</a></p>
+		<p style="text-align: center;" ng-if="tc.pages > 0"><i>Page: {{tc.$storage.currentPage+1}} of {{tc.pages}}</i></p>
 		<p style="text-align: center;" ng-if="tc.pages === 0"><i>No Results</i></p>
 		<p>The following is a list of technologies currently available for license from BYU. Filter the list using the search box or category selector. Click on any invention for more information.</p>
 		<div class="search-container">
 			<form>
 				<div class="group filter">
-					<input class="search-box" placeholder="Search technologies..." type="text" name="s" ng-model="tc.searchText">
+					<input class="search-box" placeholder="Search technologies..." type="text" name="s" ng-model="tc.$storage.searchText">
 					<div class="select-style">
-						<select name="c" ng-model="tc.categorySearch.Categories" ng-options="category as (category === '' ? 'Show All' : category) for category in tc.techData.categories"></select>
+						<select name="c" ng-model="tc.$storage.categorySearch.Categories" ng-options="category as (category === '' ? ' Show All' : category) for category in tc.techData.categories | orderBy:category"></select>
 					</div>
 			</form>
 		</div>
-		<ul class="products">
-			<div class="technology-box" ng-repeat="technology in tc.relevantTech | offset: tc.currentPage*10 | limitTo:10">
+		<ul class="products technologies-list">
+			<div class="technology-box" ng-repeat="technology in tc.$storage.relevantTech | offset: tc.$storage.currentPage*10 | limitTo:10">
 				<a class="patent-info" href="" ng-click="tc.goToTech(technology.ID)">
 					<div class='patent-list'>
 						<div class='patent-container'>
 							<h2 class='patent-name'>{{technology.Name}}</h2>
-							<!-- <span> ID: {{technology.ID}}</span> -->
+							<span> ID: {{technology.ID}}</span>
 							<p class='patent-description'>{{technology["Short Description"]}}</p>
 						</div>
 					</div>
@@ -30,17 +29,26 @@
 			</div>
 		</ul>
 		<div class="pagination row" ng-if="tc.pages > 0">
-			<div class="col-xs-3" style="padding-left: 0px;" ng-click="tc.currentPage = tc.currentPage-1" ng-class="{'page-button-disabled':(tc.currentPage===0)}">
+			<div class="col-xs-1" style="padding-left: 0px;" ng-click="tc.$storage.currentPage = tc.$storage.currentPage-1; tc.scrollToTop()" ng-class="{'page-button-disabled':(tc.$storage.currentPage===0)}">
 				<i class="fa fa-chevron-left"></i>
 			</div>
-			<div class="col-xs-6" ng-class="{'col-xs-offset-3':(tc.currentPage===0)}">
-				<p><i>Page: {{tc.currentPage+1}} of {{tc.pages}}</i></p>
+			<div class="col-xs-10" ng-class="{'col-xs-offset-1':(tc.$storage.currentPage===0)}">
+				<!-- <p class="pages"><i>Page: {{tc.$storage.currentPage+1}} of {{tc.pages}}</i></p> -->
+				<div class="pgs">
+					<!-- <p ng-if="tc.$storage.currentPage > 2 && tc.pages > 5">...</p> -->
+					<p class="pg" ng-repeat="pageIndex in tc.possiblePages | offset: ( tc.pages > tc.paginationLimits.full ? ( tc.$storage.currentPage > (tc.paginationLimits.lowerHalf-1) ? ( (tc.$storage.currentPage + tc.paginationLimits.upperHalf) < tc.pages ? tc.$storage.currentPage - tc.paginationLimits.lowerHalf : tc.pages - tc.paginationLimits.full) : 0 ) : 0 ) | limitTo: tc.paginationLimits.full" ng-click="tc.scrollToTop(pageIndex); tc.$storage.currentPage = pageIndex;" ng-class="{'highlighted':(tc.$storage.currentPage === pageIndex)}">{{pageIndex+1}}</p>
+					<!-- <p ng-if="tc.pages-3 > tc.$storage.currentPage && tc.pages > 5">...</p> -->
+				</div>
+
 			</div>
-			<div class="col-xs-3" style="padding-right: 0px;" ng-click="tc.currentPage = tc.currentPage+1" ng-class="{'page-button-disabled':(tc.currentPage+1==tc.pages), 'pull-right':(tc.currentPage===0)}">
+			<div class="col-xs-1" style="padding-right: 0px;" ng-click="tc.$storage.currentPage = tc.$storage.currentPage+1; tc.scrollToTop()" ng-class="{'page-button-disabled':(tc.$storage.currentPage+1==tc.pages), 'pull-right':(tc.$storage.currentPage===0)}">
 				<i class="fa fa-chevron-right pull-right"></i>
-			</div>			
-			
-	
+			</div>	
+		</div>
+		<div class="pagination-row-2">
+			<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===0 || tc.pages < 8)}" class="back" ng-click="tc.$storage.currentPage = 0; tc.scrollToTop()">To First Page</p>
+
+			<p ng-class="{'page-button-disabled':(tc.$storage.currentPage===tc.pages-1 || tc.pages < 8)}" class="end" ng-click="tc.$storage.currentPage = tc.pages - 1; tc.scrollToTop()">To Last Page</p>
 		</div>
 	</div>
 </div>

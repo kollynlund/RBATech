@@ -6,7 +6,7 @@ String.prototype.toProperCase = function () {
 
 (function(app){
   // ROUTES
-  function Routes($stateProvider, $urlRouterProvider) {
+  function Config($stateProvider, $urlRouterProvider, $sceDelegateProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
@@ -42,6 +42,9 @@ String.prototype.toProperCase = function () {
           templateUrl: 'templates/technology.html',
           controller: 'TechnologyController as stc',
           resolve: {
+            technologies: function(TechnologyDetails) {
+              return TechnologyDetails.checkForTechnologyLoaded();
+            },
             technology: function($stateParams, TechnologyDetails) {
               return TechnologyDetails.getSingleTechnology($stateParams.tech_id);
             }
@@ -59,6 +62,16 @@ String.prototype.toProperCase = function () {
         templateUrl: 'templates/contact.html',
         controller: 'ContactController as rc'
       });
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+      'self',
+      'http*://www.youtube.com**',
+      'http*://youtube.com**',
+      'youtube.com**',
+      'http*://www.vimeo.com**',
+      'http*://vimeo.com**',
+      'vimeo.com**',
+    ]);
   };
 
   // CUSTOM DIRECTIVES AND FILTERS
@@ -94,7 +107,7 @@ String.prototype.toProperCase = function () {
       $state.go(pagename);
     };
   };
-  function HomeController($state, VideoSize) {
+  function HomeController($state, VideoSize, TechnologyDetails) {
     var hc = this;
     hc.dimensions = VideoSize.dimensions;
     hc.goToAbout = function() {
@@ -112,14 +125,37 @@ String.prototype.toProperCase = function () {
       });
     };
   };
-  function TechnologiesController($scope, $state, $filter, technologies) {
+  function TechnologiesController($scope, $state, $filter, $location, $anchorScroll, technologies, $sessionStorage, ResetSearch, _) {
     var tc = this;
+    tc.freshPage = true;
     tc.techData = technologies;
-    tc.relevantTech = tc.techData.technologies.slice(0);
     tc.pages = Math.ceil(tc.techData.technologies.length / 10);
-    tc.currentPage = 0;
-    tc.searchText = '';
-    tc.categorySearch = {'Categories':'Show All'};
+    tc.possiblePages = _.range(tc.pages);
+    tc.paginationLimits = {
+      full: 7,
+      upperHalf: 4,
+      lowerHalf:3
+    };
+    tc.$storage = $sessionStorage.$default({
+      searchText:'',
+      categorySearch: {'Categories':' Show All'},
+      currentPage: 0,
+      relevantTech: tc.techData.technologies.slice(0)
+    });
+    if (ResetSearch.resetSearch) {
+      ResetSearch.resetSearch = false;
+      tc.$storage.searchText ='';
+      tc.$storage.categorySearch = {'Categories':' Show All'};
+      tc.$storage.currentPage = 0;
+      tc.$storage.relevantTech = tc.techData.technologies.slice(0);
+    }
+
+    tc.scrollToTop = function(pageIndex) {
+      if (tc.$storage.currentPage !== pageIndex) {
+        $location.hash('top');
+        $anchorScroll();  
+      }
+    };
     tc.goToTech = function(tech_id) {
       $state.go('technology',{'tech_id':tech_id});
     };
@@ -128,16 +164,24 @@ String.prototype.toProperCase = function () {
     };
 
     function searchWatch(newVals, oldVals) {
-      tc.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
-      tc.relevantTech = $filter('filter')(tc.relevantTech, (newVals[1] === 'Show All' ? undefined : {'Categories':newVals[1]}));
-      tc.pages = Math.ceil(tc.relevantTech.length / 10);
-      tc.currentPage = 0;
+      tc.$storage.relevantTech = $filter('filter')(tc.techData.technologies, newVals[0]);
+      tc.$storage.relevantTech = $filter('filter')(tc.$storage.relevantTech, (newVals[1] === ' Show All' ? undefined : {'Categories':newVals[1]}));
+      tc.pages = Math.ceil(tc.$storage.relevantTech.length / 10);
+      tc.possiblePages = _.range(tc.pages);
+      if (!tc.freshPage) {
+        tc.$storage.currentPage = 0;
+      }
+      else {
+        tc.freshPage = false;
+      }
     };
-    $scope.$watchCollection(function(){return [tc.searchText, tc.categorySearch.Categories]}, searchWatch);
+    $scope.$watchCollection(function(){return [tc.$storage.searchText, tc.$storage.categorySearch.Categories]}, searchWatch);
   };
-  function TechnologyController($state, $modal, technology) {
+  function TechnologyController($state, $modal, $sessionStorage, technologies, technology) {
     var stc = this;
+    stc.technologies = $sessionStorage.relevantTech || technologies.technologies;
     stc.selectedTech = technology;
+    stc.techPos;
     stc.openOrIllShootGangsta = function (media) {
       var modalInstance = $modal.open({
           animation: true,
@@ -147,11 +191,40 @@ String.prototype.toProperCase = function () {
           size: 'lg'
       });
     };
+    stc.nextTech = nextTech;
+    stc.previousTech = previousTech;
     stc.contactAboutTech = function(tech_id) {
       $state.go('contact',{'tech_id':tech_id});
     };
     stc.goTo = function(pagename) {
       $state.go(pagename);
+    };
+
+
+    stc.techPos = 
+      stc.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID) === 0
+      ? 'first'
+      : ( stc.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID) === stc.technologies.length-1
+        ? 'last'
+        : 'middle'
+        );
+    function nextTech(current_tech_id) {
+      // Default to current technology if all else fails
+      var new_tech_id = stc.selectedTech.ID;
+      if (stc.technologies) {
+        var current_index = stc.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+        new_tech_id = stc.technologies[(current_index+1 === stc.technologies.length ? current_index : current_index+1)].ID;
+      }
+      $state.go('technology',{'tech_id': new_tech_id});
+    };
+    function previousTech(current_tech_id) {
+      // Default to current technology if all else fails
+      var new_tech_id = stc.selectedTech.ID;
+      if (stc.technologies) {
+        var current_index = stc.technologies.map(function(item){return item.ID}).indexOf(stc.selectedTech.ID);
+        new_tech_id = stc.technologies[(current_index === 0 ? current_index : current_index-1)].ID;
+      }
+      $state.go('technology',{'tech_id': new_tech_id});
     };
   };
   function GenericModalController($modalInstance) {
@@ -217,8 +290,8 @@ String.prototype.toProperCase = function () {
   };
 
   // SERVICES
-  function TechnologyDetails($http, $sce, _) {
-    var techData = {
+  function TechnologyDetails($http, $sce, $sessionStorage, _) {
+    var techData = $sessionStorage.techData || {
       'technologies': null,
       'categories': null
     };
@@ -232,10 +305,14 @@ String.prototype.toProperCase = function () {
         'Contact Phone': tech_object.gsx$contactphone.$t,
         'ID': tech_object.gsx$id.$t,
         'Media': [
-          {'link':$sce.trustAsResourceUrl(tech_object['gsx$media1'].$t), 'type':(tech_object['gsx$media1'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t ? 'photo' : undefined)))},
-          {'link':$sce.trustAsResourceUrl(tech_object['gsx$media2'].$t), 'type':(tech_object['gsx$media2'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t ? 'photo' : undefined)))},
-          {'link':$sce.trustAsResourceUrl(tech_object['gsx$media3'].$t), 'type':(tech_object['gsx$media3'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t ? 'photo' : undefined)))},
-          {'link':$sce.trustAsResourceUrl(tech_object['gsx$media4'].$t), 'type':(tech_object['gsx$media4'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t ? 'photo' : undefined)))}
+          // {'link':$sce.trustAsResourceUrl(tech_object['gsx$media1'].$t), 'type':(tech_object['gsx$media1'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t ? 'photo' : undefined)))},
+          // {'link':$sce.trustAsResourceUrl(tech_object['gsx$media2'].$t), 'type':(tech_object['gsx$media2'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t ? 'photo' : undefined)))},
+          // {'link':$sce.trustAsResourceUrl(tech_object['gsx$media3'].$t), 'type':(tech_object['gsx$media3'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t ? 'photo' : undefined)))},
+          // {'link':$sce.trustAsResourceUrl(tech_object['gsx$media4'].$t), 'type':(tech_object['gsx$media4'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t ? 'photo' : undefined)))}
+          {'link':tech_object['gsx$media1'].$t, 'type':(tech_object['gsx$media1'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media1'].$t ? 'photo' : undefined)))},
+          {'link':tech_object['gsx$media2'].$t, 'type':(tech_object['gsx$media2'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media2'].$t ? 'photo' : undefined)))},
+          {'link':tech_object['gsx$media3'].$t, 'type':(tech_object['gsx$media3'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media3'].$t ? 'photo' : undefined)))},
+          {'link':tech_object['gsx$media4'].$t, 'type':(tech_object['gsx$media4'].$t.indexOf('youtube.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t.indexOf('vimeo.com') > -1 ? 'video' : (tech_object['gsx$media4'].$t ? 'photo' : undefined)))}
         ],
         'Links': tech_object.gsx$links.$t.split(',').filter(function(item){return item != ''}),
         'Long Description': tech_object.gsx$longdescription.$t.split('\n\n'),
@@ -258,9 +335,10 @@ String.prototype.toProperCase = function () {
             return category.toProperCase().trim();
           });
         });
-        categories = ['Show All'].concat(_.uniq([].concat.apply([],categories).filter(function(item){return !!item})));
+        categories = [' Show All'].concat(_.uniq([].concat.apply([],categories).filter(function(item){return !!item})));
         techData.technologies = result;
         techData.categories = categories;
+        $sessionStorage.techData = techData;
         return techData;
       });
     };
@@ -274,7 +352,7 @@ String.prototype.toProperCase = function () {
       );
     };
     var checkForTechnologyLoaded = function() {
-      return (techData.technologies ? techData : getAllTechnologyData() );
+      return ( techData.technologies ? techData : getAllTechnologyData() );
     };
 
     checkForTechnologyLoaded();
@@ -282,6 +360,13 @@ String.prototype.toProperCase = function () {
       'techData': techData,
       'getSingleTechnology': getSingleTechnology,
       'checkForTechnologyLoaded': checkForTechnologyLoaded
+    };
+  };
+  function ResetSearch($sessionStorage) {
+    var resetSearch = false;
+
+    return {
+      resetSearch: resetSearch
     };
   };
   function VideoSize() {
@@ -392,7 +477,7 @@ String.prototype.toProperCase = function () {
   };
 
   app
-  .config(Routes)
+  .config(Config)
   .run(scrollFix)
   .directive('bindVideoSize', bindVideoSize)
   .filter('offset', offset)
@@ -405,8 +490,9 @@ String.prototype.toProperCase = function () {
   .controller('ContactController', ContactController)
   .controller('HeaderController', HeaderController)
   .factory('TechnologyDetails', TechnologyDetails)
+  .factory('ResetSearch', ResetSearch)
   .factory('VideoSize',VideoSize)
   .factory('_',function() {
     return _;
   });
-})(angular.module('rbatech',['ui.router','ui.bootstrap','ngAnimate']));
+})(angular.module('rbatech',['ui.router','ui.bootstrap','ngAnimate','ngStorage']));
