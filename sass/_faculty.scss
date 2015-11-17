@@ -7,9 +7,22 @@
 }
 
 .cards {
-	&:hover {
-		opacity: .8;
+	.name-container {
+		background-color: white;
 	}
+	.name {
+	  	font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	  	font-size: 1.5em;
+	  	position: relative;
+	  	padding-top: 10px;
+	  	color: #333;
+	  	text-transform: uppercase;
+	  	text-align: center;
+		  white-space: nowrap;
+			width: 100%;                   
+		  overflow: hidden;              /* "overflow" value must be different from "visible" */ 
+		  text-overflow: ellipsis;
+	 }
 	@media (max-width: 767px) {
 		width: 60%;
 		margin: auto;
@@ -21,6 +34,9 @@
 	img {
 		text-align: center;
 		width: 100%;
+		padding: 55px;
+		padding-bottom: 0px;
+    background: white;
 
 	}
 .no-padding {
@@ -29,24 +45,26 @@
 }
 	.details {
 		text-align: center;
-		padding: 1em .5em;
+	   margin-bottom: 2em;
+    padding-bottom: 1em;
 		background-color: #fff;
 		color: #000;
 		text-transform: uppercase;
-	  margin-bottom: 30px;
-	  height: 180px;
-	  width: 100%;
+
 	  .name {
 	  	font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	  	font-size: 1.5em;
+	  	position: relative;
 		  white-space: nowrap;
 			width: 100%;                   
 		  overflow: hidden;              /* "overflow" value must be different from "visible" */ 
 		  text-overflow: ellipsis;
+		  
 	  }
 	  .title {
 	  	font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	  	font-weight: 400;
+	  	position: relative;
 	  	letter-spacing: 1px;
 	  	padding: 0em 1.125em;
 			width: 100%;                   
@@ -55,13 +73,20 @@
 		  margin-bottom: 8px !important;
 	  }
 	  .email {
-	    white-space: nowrap; 
+	    white-space: nowrap;
+	    position: relative; 
 	    width: 100%;
 	    overflow: hidden;
 	    text-overflow: ellipsis;
+	    font-style: italic;
 	  }
 	  .phone {
 	  	margin-bottom: 8px;
+	  	position: relative;
+	  }
+	  .email {
+	  	margin-bottom: 4px;
+	  	position: relative;
 	  }
 	  p:first-child {
 	  	&:before {
@@ -72,4 +97,12 @@
 	  	}	  	
 	  }
 	}
+}
+
+.testy {
+	position: absolute;
+	z-index: 1px;
+	background-color: white;
+	height: 300px;
+	width: 100%;
 }

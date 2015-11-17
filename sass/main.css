@@ -697,8 +697,21 @@ input [type="file"] {
 .faculty:last-child {
   margin-bottom: 4em; }
 
-.cards:hover {
-  opacity: .8; }
+.cards .name-container {
+  background-color: white; }
+.cards .name {
+  font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 1.5em;
+  position: relative;
+  padding-top: 10px;
+  color: #333;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  /* "overflow" value must be different from "visible" */
+  text-overflow: ellipsis; }
 @media (max-width: 767px) {
   .cards {
     width: 60%;
@@ -709,22 +722,24 @@ input [type="file"] {
     margin: auto; } }
 .cards img {
   text-align: center;
-  width: 100%; }
+  width: 100%;
+  padding: 55px;
+  padding-bottom: 0px;
+  background: white; }
 .cards .no-padding {
   padding-left: 0px !important;
   padding-right: 0px !important; }
 .cards .details {
   text-align: center;
-  padding: 1em .5em;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
   background-color: #fff;
   color: #000;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-  height: 180px;
-  width: 100%; }
+  text-transform: uppercase; }
   .cards .details .name {
     font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 1.5em;
+    position: relative;
     white-space: nowrap;
     width: 100%;
     overflow: hidden;
@@ -733,6 +748,7 @@ input [type="file"] {
   .cards .details .title {
     font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
+    position: relative;
     letter-spacing: 1px;
     padding: 0em 1.125em;
     width: 100%;
@@ -742,15 +758,28 @@ input [type="file"] {
     margin-bottom: 8px !important; }
   .cards .details .email {
     white-space: nowrap;
+    position: relative;
     width: 100%;
     overflow: hidden;
-    text-overflow: ellipsis; }
+    text-overflow: ellipsis;
+    font-style: italic; }
   .cards .details .phone {
-    margin-bottom: 8px; }
+    margin-bottom: 8px;
+    position: relative; }
+  .cards .details .email {
+    margin-bottom: 4px;
+    position: relative; }
   .cards .details p:first-child:before {
     content: " - "; }
   .cards .details p:first-child:after {
     content: " - "; }
+
+.testy {
+  position: absolute;
+  z-index: 1px;
+  background-color: white;
+  height: 300px;
+  width: 100%; }
 
 #about {
   font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
