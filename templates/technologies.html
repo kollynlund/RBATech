@@ -8,10 +8,14 @@
 		<p>The following is a list of technologies currently available for license from BYU. Filter the list using the search box or category selector. Click on any invention for more information.</p>
 		<div class="search-container">
 			<form>
-				<div class="group filter">
-					<input class="search-box" placeholder="Search technologies..." type="text" name="s" ng-model="tc.$storage.searchText">
-					<div class="select-style">
+				<div class="group filter row">
+					<div class="col-sm-8 less-padding-right">
+						<input class="search-box" placeholder="Search technologies..." type="text" name="s" ng-model="tc.$storage.searchText">
+					</div>
+					<div class="col-sm-4 less-padding-left">
+					 <div class="select-style">
 						<select name="c" ng-model="tc.$storage.categorySearch.Categories" ng-options="category as (category === '' ? ' Show All' : category) for category in tc.techData.categories | orderBy:category"></select>
+					 </div>
 					</div>
 			</form>
 		</div>

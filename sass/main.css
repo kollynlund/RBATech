@@ -912,8 +912,8 @@ iframe {
     #technologies .pagination, #technologies .pagination-row-2 {
       width: 100%; } }
 #technologies .search-box {
-  width: 60%;
-  margin-bottom: 15px;
+  width: 100%;
+  margin-bottom: 38px;
   display: inline-block;
   height: 39px;
   margin-top: 0px;
@@ -921,25 +921,32 @@ iframe {
   border: 2px solid #ddd;
   display: inline-block;
   padding-left: .5em; }
-  @media (max-width: 760px) {
+  @media (max-width: 767px) {
     #technologies .search-box {
-      width: 100%;
-      display: block; } }
+      margin-bottom: 15px; } }
 #technologies .select-style {
-  width: 39.5%;
   padding: 2.7px;
+  width: 100%;
   display: inline-block;
   margin-top: 0px;
   border: 2px solid #ddd;
   border-radius: 3px;
   background-color: #fff;
-  float: right;
   background: white url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%; }
-  @media (max-width: 760px) {
+  @media (max-width: 767px) {
     #technologies .select-style {
-      width: 100%;
-      display: block;
-      margin-bottom: 1em; } }
+      margin-bottom: 38px; } }
+#technologies .patent-filter {
+  background-color: #ddd;
+  position: relative;
+  left: -90px;
+  width: 20%; }
+#technologies .patent-list {
+  border: 5px solid #e3e1e0;
+  margin-bottom: 20px; }
+#technologies .patent-list-details {
+  width: 88% !important;
+  display: block !important; }
 #technologies .technologies-list {
   padding-left: 0px; }
 #technologies .patent-container {
@@ -962,6 +969,16 @@ iframe {
     #technologies .patent-description {
       font-size: .8em;
       margin-top: 0px; } }
+#technologies .less-padding-right {
+  padding-right: 7.5px; }
+  @media (max-width: 767px) {
+    #technologies .less-padding-right {
+      padding-right: 15px !important; } }
+#technologies .less-padding-left {
+  padding-left: 7.5px; }
+  @media (max-width: 767px) {
+    #technologies .less-padding-left {
+      padding-left: 15px !important; } }
 #technologies .patent-info {
   text-decoration: none;
   color: inherit; }
@@ -971,7 +988,7 @@ iframe {
   color: #333;
   font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
   text-align: center;
-  padding-top: .2em;
+  padding-top: .4em;
   margin-left: .3em;
   margin-top: 0em;
   margin-bottom: 0px;
@@ -995,7 +1012,7 @@ iframe {
   #technologies .pagination .fa {
     font-size: 2em;
     color: #222;
-    background-color: #f0eeed;
+    background-color: #fff;
     padding: .5em .6em;
     border-radius: 3px; }
     @media (max-width: 550px) {
@@ -1032,7 +1049,7 @@ iframe {
   width: 130px;
   border-radius: 3px;
   float: left;
-  background-color: #f0eeed;
+  background-color: #fff;
   padding: 5px 10px;
   margin-top: -5px;
   font-size: .9em; }
@@ -1044,7 +1061,7 @@ iframe {
   width: 130px;
   border-radius: 3px;
   float: right;
-  background-color: #f0eeed;
+  background-color: #fff;
   padding: 5px 10px;
   margin-top: -5px;
   font-size: .9em; }
@@ -1054,73 +1071,100 @@ iframe {
 .page-button-disabled {
   display: none !important; }
 
-#technology .ip-title {
-  display: block;
-  line-height: 1.2em;
-  margin-bottom: 1.65em;
-  margin-top: 10px;
-  font-size: 1.65em;
-  padding-left: 5px;
-  padding-right: 5px; }
-  @media (max-width: 767px) {
-    #technology .ip-title {
-      display: none; } }
-#technology .ip-title ~ span {
-  word-break: keep-all;
-  wrap: nowrap; }
-#technology .ip-description {
-  line-height: 1.2em; }
-#technology .ip-id {
-  wrap: nowrap; }
-#technology .media {
-  margin: 1em 0; }
-  #technology .media img {
-    height: auto;
+#technology {
+  font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif; }
+  #technology .breadcrumb {
+    background-color: #fafafa; }
+  #technology .ip-title {
     display: block;
+    line-height: 1.2em;
+    margin-bottom: 1.65em;
+    margin-top: 10px;
+    font-size: 1.65em;
+    padding-left: 5px;
+    padding-right: 5px; }
+    @media (max-width: 767px) {
+      #technology .ip-title {
+        display: none; } }
+  #technology .ip-title ~ span {
+    word-break: keep-all;
+    wrap: nowrap; }
+  #technology .ip-description {
+    line-height: 1.2em; }
+  #technology .ip-id {
+    wrap: nowrap; }
+  #technology .media {
+    margin: 1em 0; }
+    #technology .media img {
+      height: auto;
+      display: block;
+      width: 100%;
+      margin: auto;
+      margin-bottom: 1em; }
+      #technology .media img:hover {
+        cursor: pointer; }
+    #technology .media iframe:hover {
+      cursor: pointer; }
+  #technology .ip-link {
+    display: block;
+    font-size: .8em;
+    margin-bottom: -5px; }
+  #technology .links-container {
+    width: 49%;
+    display: inline-block;
     width: 100%;
-    margin: auto;
-    margin-bottom: 1em; }
-    #technology .media img:hover {
-      cursor: pointer; }
-  #technology .media iframe:hover {
-    cursor: pointer; }
-#technology .ip-link {
-  display: block; }
-#technology .ip-contact {
-  width: 100% !important;
-  margin-top: 2em;
-  text-align: center;
-  border: 1px solid #eee;
-  background: #555;
-  color: #FFF;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  text-transform: uppercase;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  font-size: 14px;
-  padding: 14px; }
-  #technology .ip-contact a {
-    text-decoration: none; }
-#technology .pagination {
-  display: block;
-  margin-top: 0px;
-  padding-left: 15px;
-  padding-right: 15px; }
-  @media (max-width: 767px) {
-    #technology .pagination {
-      display: inline-block; } }
-  #technology .pagination p {
-    text-align: center;
-    padding-top: 2em; }
-  #technology .pagination .fa {
-    font-size: 2em;
+    display: block; }
+    @media (max-width: 760px) {
+      #technology .links-container {
+        width: 100%;
+        font-size: .95em;
+        display: block; } }
+  #technology .links-txt {
     color: #222;
-    background-color: #f0eeed;
-    padding: .5em .75em;
-    border-radius: 3px; }
-    #technology .pagination .fa:hover {
-      cursor: pointer; }
+    font-weight: bold;
+    margin-bottom: .1em;
+    vertical-align: top;
+    margin-top: 0em; }
+  #technology .btn-main {
+    margin-top: 2em;
+    width: 50%; }
+    #technology .btn-main:hover {
+      text-decoration: none; }
+  #technology .ip-contact {
+    width: 100% !important;
+    margin-top: 2em;
+    text-align: center;
+    border: 1px solid #eee;
+    background: #555;
+    color: #FFF;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    font-size: 14px;
+    padding: 14px; }
+    #technology .ip-contact a {
+      text-decoration: none; }
+  #technology .pagination {
+    display: block;
+    margin-top: 0px;
+    padding-left: 15px;
+    padding-right: 15px; }
+    @media (max-width: 767px) {
+      #technology .pagination {
+        display: inline-block; } }
+    #technology .pagination p {
+      text-align: center;
+      padding-top: 2em; }
+    #technology .pagination .fa {
+      font-size: 2em;
+      color: #222;
+      background-color: #fafafa;
+      padding: .5em .75em;
+      border-radius: 3px; }
+      #technology .pagination .fa:hover {
+        cursor: pointer; }
 
 .modal-dialog {
   width: 80% !important;
@@ -1359,16 +1403,6 @@ input[placeholder="you@yours.com"] {
   border-top-left-radius: 4px !important;
   border-bottom-left-radius: 4px !important; }
 
-footer {
-  background-color: #f2f2f2;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
-  text-align: center;
-  position: fixed;
-  bottom: 0px;
-  color: #6d6e70;
-  width: 100%; }
-
 #overlay {
   background: rgba(0, 0, 0, 0.9);
   width: 100%;
@@ -1405,23 +1439,6 @@ footer {
   background-repeat: no-repeat;
   background-size: contain;
   display: inline; }
-
-.patent-filter {
-  background-color: #ddd;
-  position: relative;
-  left: -90px;
-  width: 20%; }
-
-.patent-list {
-  background-color: #f0eeed !important;
-  border: 1px solid #e3e1e0;
-  padding: .6em;
-  border-radius: 2px;
-  margin-bottom: 10px; }
-
-.patent-list-details {
-  width: 88% !important;
-  display: block !important; }
 
 .search-patents-icon {
   background-color: #ddd;
@@ -1491,17 +1508,6 @@ footer {
 .select-style select:focus {
   outline: none; }
 
-.links-container {
-  width: 49%;
-  display: inline-block;
-  width: 100%;
-  display: block; }
-  @media (max-width: 760px) {
-    .links-container {
-      width: 100%;
-      font-size: .95em;
-      display: block; } }
-
 .media-container {
   width: 50%;
   display: inline-block;
@@ -1510,13 +1516,6 @@ footer {
     .media-container {
       width: 100%;
       display: block; } }
-
-.links-txt {
-  color: #555;
-  font-size: 1.45em;
-  margin-bottom: .1em;
-  vertical-align: top;
-  margin-top: 0em; }
 
 .img {
   width: 100%;

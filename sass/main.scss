@@ -276,20 +276,16 @@ input[placeholder="you@yours.com"] {
 }
 
 
-footer {
-	background-color: #f2f2f2;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
-    text-align: center;
-    position: fixed;
-    bottom: 0px;
-        color: #6d6e70;
-    width: 100%;
-}
-
-
-
-
+// footer {
+// 	background-color: #f2f2f2;
+//     padding-top: 1.5em;
+//     padding-bottom: 1.5em;
+//     text-align: center;
+//     position: fixed;
+//     bottom: 0px;
+//         color: #6d6e70;
+//     width: 100%;
+// }
 
 
 
@@ -331,32 +327,6 @@ margin-top: 2em;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .note-designer {
     font-family: Georgia, serif;
     font-size: 14px;
@@ -376,25 +346,6 @@ margin-top: 2em;
 
 
 
-.patent-filter {
-    background-color: #ddd;
-    position: relative;
-    left: -90px;
-    width: 20%;
-}
-
-.patent-list {
-    background-color: #f0eeed !important;
-    border: 1px solid #e3e1e0;
-    padding: .6em;
-    border-radius: 2px;
-    margin-bottom: 10px;
-}
-
-.patent-list-details {
-    width: 88% !important;
-    display: block !important;
-}
 
 
 
@@ -480,19 +431,6 @@ margin-top: 2em;
 }
 
 
-.links-container {
-    width: 49%;
-    display: inline-block;
-    width: 100%;
-    display: block;    
-
-    @media (max-width: 760px) {
-        width: 100%;
-        font-size: .95em;
-        display: block;
-    }
-}
-
 .media-container {
     width: 50%;
     display: inline-block;
@@ -503,13 +441,7 @@ margin-top: 2em;
     }
 }
 
-.links-txt {
-    color: #555;
-    font-size: 1.45em;
-    margin-bottom: .1em;
-    vertical-align: top;
-    margin-top: 0em;
-}
+
 
 
 .img {   
@@ -542,3 +474,11 @@ text-align: center;
 padding: 14px;
 background: #f0eeed; 
 }
+
+
+
+
+
+
+
+

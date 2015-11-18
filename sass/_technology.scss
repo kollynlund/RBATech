@@ -1,4 +1,8 @@
 #technology {
+	font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	.breadcrumb {
+		background-color: #fafafa;
+	}
 	.ip-title {
     display: block;
     line-height: 1.2em;
@@ -45,7 +49,38 @@
 
 	.ip-link {
 	    display: block;
+	    font-size: .8em;
+	    margin-bottom: -5px;
 	}
+
+	.links-container {
+	    width: 49%;
+	    display: inline-block;
+	    width: 100%;
+	    display: block;    
+
+	    @media (max-width: 760px) {
+	        width: 100%;
+	        font-size: .95em;
+	        display: block;
+	    }
+	}
+
+	.links-txt {
+	    color: #222;
+	    font-weight: bold;
+	    margin-bottom: .1em;
+	    vertical-align: top;
+	    margin-top: 0em;
+	}
+	.btn-main {
+		margin-top: 2em;
+		width: 50%;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
 
 
 	.ip-contact {
@@ -81,7 +116,7 @@
 		.fa {
 			font-size: 2em;
 			color: #222;
-			background-color: #f0eeed;
+			background-color: #fafafa;
 			padding: .5em .75em;
 			border-radius: 3px;
 			&:hover {

@@ -26,8 +26,8 @@
 			}
 		}
     .search-box {
-        width: 60%;
-        margin-bottom: 15px;
+        width: 100%;
+        margin-bottom: 38px;
         display: inline-block;
         height: 39px;
         margin-top: 0px;
@@ -35,27 +35,41 @@
         border: 2px solid #ddd;
         display: inline-block;
         padding-left: .5em;
-        @media (max-width: 760px) {
-            width: 100%;
-            display: block;
+        @media (max-width: 767px) {
+            margin-bottom: 15px;
         }
     }
-    .select-style {
-      width: 39.5%;    
+    .select-style {    
       padding: 2.7px;
+      width: 100%;
       display: inline-block;
       margin-top: 0px;
       border: 2px solid #ddd;
       border-radius: 3px;
       background-color: #fff;
-      float: right;
       background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%;
-          @media (max-width: 760px) {
-            width: 100%;
-            display: block;
-            margin-bottom: 1em;
+          @media (max-width: 767px) {
+            margin-bottom: 38px;
         }
     }
+
+    .patent-filter {
+	    background-color: #ddd;
+	    position: relative;
+	    left: -90px;
+	    width: 20%;
+		}
+
+		.patent-list {
+	    border: 5px solid #e3e1e0;
+	    margin-bottom: 20px;
+		}
+
+		.patent-list-details {
+	    width: 88% !important;
+	    display: block !important;
+		}
+
     .technologies-list {
     	padding-left: 0px;
     }
@@ -84,6 +98,23 @@
 	    }
 	}
 
+	.less-padding-right {
+		padding-right: 7.5px;
+		@media (max-width: 767px) {
+			padding-right: 15px !important;
+		}
+	}
+
+	.less-padding-left {
+		padding-left: 7.5px;
+		@media (max-width: 767px) {
+			padding-left: 15px !important;
+		}
+	}
+
+
+
+
 	.patent-info {
 	    text-decoration: none;
 	    color: inherit;
@@ -95,7 +126,7 @@
 	    color: #333;
 	    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	    text-align: center;
-	    padding-top: .2em;
+	    padding-top: .4em;
 	    margin-left: .3em;
 	    margin-top: 0em;
 	    margin-bottom: 0px;
@@ -123,7 +154,7 @@
 		.fa {
 			font-size: 2em;
 			color: #222;
-			background-color: #f0eeed;
+			background-color: #fff;
 			padding: .5em .6em;
 			border-radius: 3px;
 			@media (max-width: 550px) {
@@ -169,7 +200,7 @@
 		width: 130px;
 		border-radius: 3px;
 		float: left;
-		background-color: #f0eeed;
+		background-color: #fff;
 		padding: 5px 10px;
 		margin-top: -5px;
 		font-size: .9em;
@@ -185,7 +216,7 @@
 		width: 130px;
 		border-radius: 3px;
 		float: right;
-		background-color: #f0eeed;
+		background-color: #fff;
 		padding: 5px 10px;
 		margin-top: -5px;
 		font-size: .9em;
