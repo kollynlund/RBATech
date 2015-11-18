@@ -520,7 +520,7 @@ input[type="submit"], .ip-contact {
   background: -webkit-linear-gradient(top, #f14c2e 0%, #d8452e 100%);
   background: -o-linear-gradient(top, #f14c2e 0%, #d8452e 100%);
   background: -ms-linear-gradient(top, #f14c2e 0%, #d8452e 100%);
-  background: linear-gradient(to bottom, #A1B9DB 0%, #8FA4C2 100%);
+  background: linear-gradient(to bottom, #a1b9db 0%, #8fa4c2 100%);
   color: #fff !important;
   text-align: center;
   padding: 6px 12px;
@@ -888,11 +888,29 @@ iframe {
 .modal-content {
   border-radius: 0px !important; }
 
+#technologies h1 {
+  font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #333;
+  margin-bottom: 0px;
+  margin-top: 10px; }
 #technologies .featured-tech-pdf {
   text-align: center;
   font-size: 1em;
   font-style: italic;
   margin-bottom: 2.25em; }
+#technologies .pagination, #technologies .pagination-row-2 {
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+  @media (max-width: 830px) {
+    #technologies .pagination, #technologies .pagination-row-2 {
+      width: 85%; } }
+  @media (max-width: 630px) {
+    #technologies .pagination, #technologies .pagination-row-2 {
+      width: 100%; } }
 #technologies .search-box {
   width: 60%;
   margin-bottom: 15px;
@@ -916,20 +934,22 @@ iframe {
   border-radius: 3px;
   background-color: #fff;
   float: right;
-  background: #fff url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%; }
+  background: white url("http://www.scottgood.com/jsg/blog.nsf/images/arrowdown.gif") no-repeat 90% 50%; }
   @media (max-width: 760px) {
     #technologies .select-style {
       width: 100%;
       display: block;
       margin-bottom: 1em; } }
+#technologies .technologies-list {
+  padding-left: 0px; }
 #technologies .patent-container {
-  background-color: #fff;
-  padding: 5px; }
+  background-color: #fff; }
   #technologies .patent-container span {
     margin-left: .5em;
     font-size: .9em; }
 #technologies .patent-description {
   text-align: center;
+  font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 1em;
   margin-top: .1em;
   padding: 0px 0em .5em .5em;
@@ -949,6 +969,7 @@ iframe {
     text-decoration: none; }
 #technologies .patent-name {
   color: #333;
+  font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
   text-align: center;
   padding-top: .2em;
   margin-left: .3em;
@@ -969,24 +990,65 @@ iframe {
   margin-top: 3em; }
   #technologies .pagination p {
     text-align: center;
-    padding-top: 2em; }
+    display: inline-block;
+    margin: auto; }
   #technologies .pagination .fa {
     font-size: 2em;
     color: #222;
     background-color: #f0eeed;
-    padding: .75em 1em;
+    padding: .5em .6em;
     border-radius: 3px; }
+    @media (max-width: 550px) {
+      #technologies .pagination .fa {
+        padding: .35em;
+        padding-left: .45em;
+        padding-right: .45em;
+        font-size: 1.5em; } }
     #technologies .pagination .fa:hover {
       cursor: pointer; }
+  #technologies .pagination .pgs {
+    margin-top: .9em;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center; }
+    @media (max-width: 550px) {
+      #technologies .pagination .pgs {
+        margin-top: 0em; } }
+    #technologies .pagination .pgs .pg {
+      font-size: 1em;
+      padding: 7px 0px;
+      font-style: italic; }
+      #technologies .pagination .pgs .pg:hover {
+        cursor: pointer !important;
+        font-weight: bold; }
+  #technologies .pagination .highlighted {
+    font-weight: bold;
+    background-color: #eee;
+    border-radius: 4px; }
 #technologies .back {
   text-align: center;
   padding-top: 10px;
-  width: 167px;
+  width: 130px;
   border-radius: 3px;
   float: left;
   background-color: #f0eeed;
-  padding: 5px 10px; }
+  padding: 5px 10px;
+  margin-top: -5px;
+  font-size: .9em; }
   #technologies .back:hover {
+    cursor: pointer; }
+#technologies .end {
+  text-align: center;
+  padding-top: 10px;
+  width: 130px;
+  border-radius: 3px;
+  float: right;
+  background-color: #f0eeed;
+  padding: 5px 10px;
+  margin-top: -5px;
+  font-size: .9em; }
+  #technologies .end:hover {
     cursor: pointer; }
 
 .page-button-disabled {
@@ -995,8 +1057,14 @@ iframe {
 #technology .ip-title {
   display: block;
   line-height: 1.2em;
-  margin-bottom: 1.25em;
-  margin-top: 10px; }
+  margin-bottom: 1.65em;
+  margin-top: 10px;
+  font-size: 1.65em;
+  padding-left: 5px;
+  padding-right: 5px; }
+  @media (max-width: 767px) {
+    #technology .ip-title {
+      display: none; } }
 #technology .ip-title ~ span {
   word-break: keep-all;
   wrap: nowrap; }
@@ -1039,6 +1107,9 @@ iframe {
   margin-top: 0px;
   padding-left: 15px;
   padding-right: 15px; }
+  @media (max-width: 767px) {
+    #technology .pagination {
+      display: inline-block; } }
   #technology .pagination p {
     text-align: center;
     padding-top: 2em; }
@@ -1071,6 +1142,18 @@ iframe {
 
 .cover {
   padding: 100% !important; }
+
+@media (min-width: 767px) {
+  .ip-title-mobile {
+    display: none; } }
+@media (max-width: 767px) {
+  .ip-title-mobile {
+    font-size: 1.6em !important;
+    margin-bottom: 20px !important;
+    line-height: 26px !important;
+    width: 90%;
+    display: block;
+    margin: auto; } }
 
 .clearfix:after {
   content: ".";
@@ -1463,5 +1546,3 @@ footer {
   text-align: center;
   padding: 14px;
   background: #f0eeed; }
-
-/*# sourceMappingURL=main.css.map */

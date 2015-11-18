@@ -1,12 +1,29 @@
 #technologies {
 		h1 {
-			
+			font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
+			text-transform: uppercase;
+			font-weight: 900;
+			color: #333;
+			margin-bottom: 0px;
+			margin-top: 10px;
 		}
 		.featured-tech-pdf {
 			text-align: center;
 			font-size: 1em;
 			font-style: italic;
 			margin-bottom: 2.25em;
+		}
+		.pagination, .pagination-row-2 {
+			width: 75%;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			@media (max-width: 830px) {
+				width: 85%;
+			}
+			@media (max-width: 630px) {
+				width: 100%;
+			}
 		}
     .search-box {
         width: 60%;
@@ -39,9 +56,11 @@
             margin-bottom: 1em;
         }
     }
+    .technologies-list {
+    	padding-left: 0px;
+    }
     .patent-container {
     background-color: #fff;
-    padding: 5px;
     span {
         margin-left: .5em;
         font-size: .9em;
@@ -49,6 +68,7 @@
 	}
 	.patent-description {
 	    text-align: center;
+	    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	    font-size: 1em;
 	    margin-top: .1em;
 	    padding: 0px 0em .5em .5em;
@@ -73,6 +93,7 @@
 	}
 	.patent-name {
 	    color: #333;
+	    font-family: Raleway,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	    text-align: center;
 	    padding-top: .2em;
 	    margin-left: .3em;
@@ -95,32 +116,83 @@
 		margin-top: 3em;
 		p {
 			text-align: center;
-			padding-top: 2em;
+			display: inline-block;
+			margin: auto;
+
 		}
 		.fa {
 			font-size: 2em;
 			color: #222;
 			background-color: #f0eeed;
-			padding: .75em 1em;
+			padding: .5em .6em;
 			border-radius: 3px;
+			@media (max-width: 550px) {
+				padding: .35em;
+				padding-left: .45em;
+				padding-right: .45em;
+				font-size: 1.5em;
+			}
 			&:hover {
 				cursor: pointer;
 			}
 		}
+		.pgs {
+			margin-top: .9em;
+			margin-left: auto;
+			margin-right: auto;
+			display: flex;
+			justify-content: center;
+			@media (max-width: 550px) {
+				margin-top: 0em;
+			}
+			.pg {
+				font-size: 1em;
+				padding: 7px 0px;
+				font-style: italic;
+				&:hover {
+					cursor: pointer !important;
+					font-weight: bold;
+				}
+			}
+		}
+		.highlighted {
+			font-weight: bold;
+			background-color: #eee;
+			border-radius: 4px;
+		}
 	}
+
+
 	.back {
 		text-align: center;
 		padding-top: 10px;
-		width: 167px;
+		width: 130px;
 		border-radius: 3px;
 		float: left;
 		background-color: #f0eeed;
 		padding: 5px 10px;
+		margin-top: -5px;
+		font-size: .9em;
+		&:hover {
+		cursor: pointer;
+		}		
+	}	
+
+
+	.end {
+		text-align: center;
+		padding-top: 10px;
+		width: 130px;
+		border-radius: 3px;
+		float: right;
+		background-color: #f0eeed;
+		padding: 5px 10px;
+		margin-top: -5px;
+		font-size: .9em;
 		&:hover {
 		cursor: pointer;
 		}
-	}
-
+		}
 
 }
 

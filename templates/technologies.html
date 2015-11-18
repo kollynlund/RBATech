@@ -1,7 +1,7 @@
 <div id="technologies" class="section shirts page">
 	<div class="wrapper">
 <!-- 		<div class="breadcrumb"><a href="" ng-click="tc.goTo('home')">Home</a> &gt; <a href="" ng-click="tc.goTo('technologies')">Technologies</a> </div> -->
-		<h1 style="margin-bottom: 0em;">BYU Technologies Available for License</h1>
+		<h1>RBA Technologies Available for License</h1>
 		<p class="featured-tech-pdf"><a href="http://techtransfer.byu.edu/Promising-Technologies.pdf" target="_blank">Download the List of Promising Technologies (pdf)</a></p>
 		<p style="text-align: center;" ng-if="tc.pages > 0"><i>Page: {{tc.$storage.currentPage+1}} of {{tc.pages}}</i></p>
 		<p style="text-align: center;" ng-if="tc.pages === 0"><i>No Results</i></p>
@@ -21,7 +21,7 @@
 					<div class='patent-list'>
 						<div class='patent-container'>
 							<h2 class='patent-name'>{{technology.Name}}</h2>
-							<span> ID: {{technology.ID}}</span>
+							<!-- <span> ID: {{technology.ID}}</span> -->
 							<p class='patent-description'>{{technology["Short Description"]}}</p>
 						</div>
 					</div>
