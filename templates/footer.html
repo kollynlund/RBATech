@@ -1,4 +1,4 @@
-<div ng-controller="GenericController as fc" class="footer-wrapper">
+<!-- <div ng-controller="GenericController as fc" class="footer-wrapper">
   <div class="footer">
     <div class="row">
       <div class="col-sm-12">
@@ -40,7 +40,7 @@
 
 
 
-
+ -->
 <!--     <div class="column-left footer-column">
       <h3 class="footer-title">Our Mission</h3>
       <p><a href="index.php">Become a donor</a></p>
@@ -60,4 +60,82 @@
     </div> -->
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="footer" ng-controller="GenericController as fc">
+  <div class="footer-wrapper">
+    <div class="footer">
+      <div class="column-left footer-column">
+        <h3 class="footer-title">Contact</h3>
+        <p>3760 Harold B. Lee Library</p>
+        <p>Brigham Young University</p>
+        <p>Provo, UT 84602</p>
+        <br>
+        <p>Phone: (801) 422-6266</p>
+        <p>Fax: (801) 422-0463</p>
+        <br>
+        <p style="margin-bottom: .3em;"><u>Staff:</u></p>
+        <p>Mike Alder, Life Sciences</p>
+        <p>Dave Brown, Software</p>
+        <p>Spencer Rogers, Engineering</p>
+        <p>Colleen Kohler, Administrative</p>
+        <p>Thaylene Rogers, Finance</p>
+        
+      </div>
+      <div class="column-center footer-column">
+        <h3 class="footer-title">Site Links</h3>
+        <p><a href="" ng-click="fc.goTo('home')">Home Page</a></p>
+        <p><a href="" ng-click="fc.goToAndReset('technologies')">Full List of Technologies</a></p>
+<!--         <p><a href="" ng-click="fc.goTo('resources')">Resources & Forms</a></p> -->
+        <p><a href="" ng-click="fc.goTo('contact')">Contact Us</a></p>
+        <p><a href="" ng-click="fc.goTo('about')">About Us</a></p>
+<!--         <p><a href="http://home.byu.edu/home/" target="_blank">Roy</a></p> -->
+        
+        <br>
+        <h3 class="footer-title">Follow Us</h3>
+        <p><a href="https://www.youtube.com/channel/UCez0aJJmX2JNxDuE3IJLakA" target="_blank"><i class="fa fa-youtube-play"></i> YouTube</a></p>
+        <p><a href="https://www.linkedin.com/pub/byu-technology-transfer/82/48b/a97" target="_blank"><i class="fa fa-linkedin"></i> Linkedin</a></p>
+        
+      </div>
+      <div class="column-right footer-column">
+        <h3 class="footer-title">Resources</h3>
+        <p><a href="http://www.physics.byu.edu/Research/acoustics/" target="_blank">Acoustics Research Group</a></p>
+        <p><a href="http://www.physics.byu.edu/research/atomic/default.aspx" target="_blank">Atomic, Molecular, and Optical Physics</a></p>
+        <p><a href="http://magres.groups.et.byu.net/" target="_blank">Biomedical Imaging Research Group</a></p>
+        <p><a href="http://biophysics.byu.edu/" target="_blank">Biophysics Great Lab</a></p>
+        <p><a href="http://chemicalengineering.byu.edu/research" target="_blank">Chemical Engineering Department</a></p>
+        <p><a href="http://compliantmechanisms.byu.edu/" target="_blank">Compliant Mechanisms Research</a></p>
+        <p><a href="http://www.physics.byu.edu/Research/condensed/" target="_blank">Condensed Matter Physics</a></p>
+        <p><a href="http://www.ee.byu.edu/research/" target="_blank">Electrical & Computer Engineering Labs</a></p>
+        <p><a href="http://environmentalscience.byu.edu/" target="_blank">Environmental Science</a></p>
+        <p><a href="http://ndfs.byu.edu/FacilitiesandServices/FoodQALab/Home.aspx" target="_blank">Food Quality Assurance Laboratory</a></p>
+        <p><a href="http://genetics.byu.edu/" target="_blank">Genetics and Biotechnology</a></p>
+        <p><a href="http://hprc.byu.edu/" target="_blank">Human Performance Research Center</a></p>
+        <p><a href="http://www.chem.byu.edu/node/216" target="_blank">Mass Spectrometry Lab</a></p>
+        <p><a href="http://me.byu.edu/content/research-areas" target="_blank">Mechanical Engineering Department</a></p>
+        <p><a href="http://www.physics.byu.edu/Research/plasma/" target="_blank">Plasma Research Group</a></p>
+        
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+
+  <div id="copyright">
+    <br>
+    <p><a href="http://techtransfer.byu.edu/">BYU Technology Transfer Office</a></p>
+    <p><a href="http://home.byu.edu/home/copyright">&#169 {{fc.currentYear}} by Brigham Young University, Inc. All rights reserved.</a></p>
+    <br>
+  </div>
+</div>
 
