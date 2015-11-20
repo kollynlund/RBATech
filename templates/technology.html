@@ -21,7 +21,7 @@
 
 				<div class="col-sm-8">
 					<span class="ip-id"><b>ID:</b> {{::stc.selectedTech.ID}}</span>
-					<p class="ip-description"><b>Principal Investigator:</b> {{::stc.selectedTech["PI"]}}</p>
+<!-- 					<p class="ip-description"><b>Principal Investigator:</b> {{::stc.selectedTech["PI"]}}</p> -->
 					<p class="ip-description">{{::stc.selectedTech["Short Description"]}}</p>
 					<p class="ip-description" ng-repeat="paragraph in ::stc.selectedTech['Long Description']">{{paragraph}}</p>
 					<p ng-if='stc.selectedTech["About the Market"]'><b>About the Market:</b></p>
