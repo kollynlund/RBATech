@@ -337,7 +337,7 @@ String.prototype.toProperCase = function () {
       };
     };
     var getAllTechnologyData = function() {
-      return $http.get('https://spreadsheets.google.com/feeds/list/17Tf9_PvDC-fx3-vTHkmopjAndc94ZTXWFp-q0jxJjrM/1/public/values?alt=json-in-script&callback=jsonpCallback').then(function(data){
+      return $http.get('https://spreadsheets.google.com/feeds/list/1IZjNxRegAsMVW-4bZ87DeKKvoFeY4d3WcPYoxLiRxa4/1/public/values?alt=json-in-script&callback=jsonpCallback').then(function(data){
         var pre = data.data.replace('// API callback\njsonpCallback(','');
         var object = JSON.parse(pre.slice(0,pre.length - 2));
         var result = [];
