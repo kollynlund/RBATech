@@ -1,4 +1,4 @@
-<div class="container" id="about">
+<div  ng-controller="HeaderController as hc" class="container" id="about">
 	<div class="page-title">
 		<h1>RBA Technologies</h1>
 	</div>
@@ -39,7 +39,7 @@
 	  	<li>We provide web solutions for TTOs.</li>
 	  </ul>
 
-	  <button class="btn-main">Go To Technologies</button>
+	  <button class="btn-main" ng-click="hc.goTo('technologies')">Go To Technologies</button>
 <!-- 
 	  <p class="main-text">Attend to learn new business skills from experienced and successful faculty members and use the opportunity to start or grow your own business. Learn skills that will help you develop and strengthen your role as a leader in your family, community, and profession.</p> -->
 <!-- 
