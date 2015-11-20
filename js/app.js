@@ -54,13 +54,13 @@ String.prototype.toProperCase = function () {
       .state('resources', {
         url: '/resources',
         templateUrl: 'templates/resources.html',
-        controller: 'GenericController as rc'
+        controller: 'GenericController as gc'
       })
 
       .state('contact', {
         url: '/contact',
         templateUrl: 'templates/contact.html',
-        controller: 'ContactController as rc'
+        controller: 'ContactController as cc'
       });
 
     $sceDelegateProvider.resourceUrlWhitelist([
