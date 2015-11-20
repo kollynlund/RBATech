@@ -258,7 +258,7 @@ String.prototype.toProperCase = function () {
 
     cc.submitForm = function() {
       if (cc.formValid) {
-        // Emailer.SendContactEmail(cc.formData);
+        Emailer.SendContactEmail(cc.formData);
         cc.emailSent = true;
       }
     };
@@ -415,6 +415,7 @@ String.prototype.toProperCase = function () {
   .controller('GenericModalController', GenericModalController)
   .controller('ContactController', ContactController)
   .controller('HeaderController', HeaderController)
+  .factory('Emailer', Emailer)
   .factory('TechnologyDetails', TechnologyDetails)
   .factory('ResetSearch', ResetSearch)
   .factory('VideoSize',VideoSize)
