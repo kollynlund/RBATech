@@ -470,8 +470,12 @@ input[type="submit"], .ip-contact {
     margin-left: 50% !important;
     text-align: center; }
 
+.thank {
+  margin-bottom: 6em !important; }
+
 .thank-you-text {
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 3em; }
 
 .ip-contact {
   text-align: center;
